@@ -40,12 +40,9 @@ namespace mcptouch.Controllers
             if (ModelState.IsValid)
             {
                 //old style of authenticating user to match the legacy system
-                //if (Membership.ValidateUser(model.UserName, model.Password))                
                 int userID = model.AuthenticateUser();
                 if(userID > 0)
                 {
-                    //FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-
                     FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, model.UserName, DateTime.Now, DateTime.Now.AddMonths(6), model.RememberMe, userID.ToString());
                     string encTicket = FormsAuthentication.Encrypt(ticket);
                     Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encTicket));
