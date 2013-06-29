@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h2>MyCarProjects.net</h2>
+<h3>Mobile Web Edition @ViewBag.DateRange</h3>
+<p>Use the log in button above to access your account. If you do not have an account, one can be obtained for free on the main <a href="http://www.mycarprojects.net">MyCarProjects.net</a> website or by using the official Android app.</p>
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Navigation</li>
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+</ul>

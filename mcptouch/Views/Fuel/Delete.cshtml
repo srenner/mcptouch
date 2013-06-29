@@ -1,0 +1,74 @@
+﻿@model mcptouch.Models.Fuel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Fuel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Car.Nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Car.Nickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BeginOdo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BeginOdo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndOdo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndOdo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Miles)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Miles)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gallons)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gallons)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoneySpent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoneySpent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comments)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comments)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

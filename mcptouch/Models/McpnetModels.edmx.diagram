@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c287f29bc39c4ddb9540bf74653380b8" Name="Diagram1">
+        <EntityTypeShape EntityType="mcpnetModel.Alert" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.ArticleCategory" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Article" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.ArticleStatu" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Car" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.DateInterval" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Fuel" Width="1.5" PointX="5.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Guestbook" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.IssueItem" Width="1.5" PointX="7.5" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Issue" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Job" Width="1.5" PointX="5.25" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.LoginHistory" Width="1.5" PointX="3" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Maintenance" Width="1.5" PointX="8.25" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Note" Width="1.5" PointX="5.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.OdometerHistory" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.ProjectItem" Width="1.5" PointX="7.5" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.Project" Width="1.5" PointX="5.25" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.ShoppingList" Width="1.5" PointX="7.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.UsernameQuery" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="mcpnetModel.User" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <AssociationConnector Association="mcpnetModel.FK_Articles_ArticleStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Articles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Cars_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Fuel_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Issues_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Maintenance_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Notes_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_OdometerHistory_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Projects_Cars" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_IssueItems_Issues" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_IssueItems_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_IssueItems_Maintenance" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_Maintenance_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_ShoppingList_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_LoginHistory_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="mcpnetModel.FK_ProjectItems_Projects" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

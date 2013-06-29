@@ -1,0 +1,71 @@
+﻿@model mcptouch.Models.Fuel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Fuel</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Car.Nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Car.Nickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BeginOdo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BeginOdo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndOdo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndOdo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Miles)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Miles)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Gallons)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gallons)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MoneySpent)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MoneySpent)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comments)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comments)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.FuelID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,93 @@
+﻿@model mcptouch.Models.Fuel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Fuel</legend>
+
+        @Html.HiddenFor(model => model.FuelID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarID, "Car")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CarID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CarID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BeginOdo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BeginOdo)
+            @Html.ValidationMessageFor(model => model.BeginOdo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndOdo)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndOdo)
+            @Html.ValidationMessageFor(model => model.EndOdo)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Miles)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Miles)
+            @Html.ValidationMessageFor(model => model.Miles)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Gallons)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Gallons)
+            @Html.ValidationMessageFor(model => model.Gallons)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MoneySpent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MoneySpent)
+            @Html.ValidationMessageFor(model => model.MoneySpent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comments)
+            @Html.ValidationMessageFor(model => model.Comments)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

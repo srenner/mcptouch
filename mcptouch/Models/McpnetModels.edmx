@@ -1,0 +1,2970 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="mcpnetModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="mcpnetModelStoreContainer">
+          <EntitySet Name="Alerts" EntityType="mcpnetModel.Store.Alerts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ArticleCategories" EntityType="mcpnetModel.Store.ArticleCategories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Articles" EntityType="mcpnetModel.Store.Articles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ArticleStatus" EntityType="mcpnetModel.Store.ArticleStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Cars" EntityType="mcpnetModel.Store.Cars" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DateInterval" EntityType="mcpnetModel.Store.DateInterval" store:Type="Tables" store:Schema="dbo" store:Name="DateInterval">
+            <DefiningQuery>SELECT 
+      [DateInterval].[MonthsValue] AS [MonthsValue], 
+      [DateInterval].[MonthsDescr] AS [MonthsDescr]
+      FROM [dbo].[DateInterval] AS [DateInterval]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Fuel" EntityType="mcpnetModel.Store.Fuel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Guestbook" EntityType="mcpnetModel.Store.Guestbook" store:Type="Tables" store:Schema="dbo" store:Name="Guestbook">
+            <DefiningQuery>SELECT 
+      [Guestbook].[GuestbookID] AS [GuestbookID], 
+      [Guestbook].[CarID] AS [CarID], 
+      [Guestbook].[FromUserID] AS [FromUserID], 
+      [Guestbook].[Message] AS [Message], 
+      [Guestbook].[MessageDate] AS [MessageDate]
+      FROM [dbo].[Guestbook] AS [Guestbook]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="IssueItems" EntityType="mcpnetModel.Store.IssueItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Issues" EntityType="mcpnetModel.Store.Issues" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Jobs" EntityType="mcpnetModel.Store.Jobs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LoginHistory" EntityType="mcpnetModel.Store.LoginHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Maintenance" EntityType="mcpnetModel.Store.Maintenance" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Notes" EntityType="mcpnetModel.Store.Notes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OdometerHistory" EntityType="mcpnetModel.Store.OdometerHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProjectItems" EntityType="mcpnetModel.Store.ProjectItems" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Projects" EntityType="mcpnetModel.Store.Projects" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ShoppingList" EntityType="mcpnetModel.Store.ShoppingList" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UsernameQueries" EntityType="mcpnetModel.Store.UsernameQueries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="mcpnetModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Articles_ArticleStatus" Association="mcpnetModel.Store.FK_Articles_ArticleStatus">
+            <End Role="ArticleCategories" EntitySet="ArticleCategories" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Articles_Users" Association="mcpnetModel.Store.FK_Articles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_Users" Association="mcpnetModel.Store.FK_Cars_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fuel_Cars" Association="mcpnetModel.Store.FK_Fuel_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Fuel" EntitySet="Fuel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssueItems_Issues" Association="mcpnetModel.Store.FK_IssueItems_Issues">
+            <End Role="Issues" EntitySet="Issues" />
+            <End Role="IssueItems" EntitySet="IssueItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssueItems_Jobs" Association="mcpnetModel.Store.FK_IssueItems_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="IssueItems" EntitySet="IssueItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssueItems_Maintenance" Association="mcpnetModel.Store.FK_IssueItems_Maintenance">
+            <End Role="Maintenance" EntitySet="Maintenance" />
+            <End Role="IssueItems" EntitySet="IssueItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issues_Cars" Association="mcpnetModel.Store.FK_Issues_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Issues" EntitySet="Issues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginHistory_Users" Association="mcpnetModel.Store.FK_LoginHistory_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="LoginHistory" EntitySet="LoginHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Cars" Association="mcpnetModel.Store.FK_Maintenance_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Maintenance" EntitySet="Maintenance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Jobs" Association="mcpnetModel.Store.FK_Maintenance_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Maintenance" EntitySet="Maintenance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_Cars" Association="mcpnetModel.Store.FK_Notes_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdometerHistory_Cars" Association="mcpnetModel.Store.FK_OdometerHistory_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="OdometerHistory" EntitySet="OdometerHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectItems_Projects" Association="mcpnetModel.Store.FK_ProjectItems_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectItems" EntitySet="ProjectItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cars" Association="mcpnetModel.Store.FK_Projects_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingList_Jobs" Association="mcpnetModel.Store.FK_ShoppingList_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="ShoppingList" EntitySet="ShoppingList" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Alerts">
+          <Key>
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="AlertID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="EmailSent" Type="bit" />
+        </EntityType>
+        <EntityType Name="ArticleCategories">
+          <Key>
+            <PropertyRef Name="ArticleCategoryID" />
+          </Key>
+          <Property Name="ArticleCategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleCategory" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Articles">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+          </Key>
+          <Property Name="ArticleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ArticleName" Type="varchar" MaxLength="255" />
+          <Property Name="ArticleText" Type="text" />
+          <Property Name="ArticleCategoryID" Type="int" />
+          <Property Name="ArticleStatusID" Type="int" />
+        </EntityType>
+        <EntityType Name="ArticleStatus">
+          <Key>
+            <PropertyRef Name="ArticleStatusID" />
+          </Key>
+          <Property Name="ArticleStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleStatus" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsPublic" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Nickname" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Year" Type="varchar" MaxLength="50" />
+          <Property Name="Make" Type="varchar" MaxLength="50" />
+          <Property Name="Model" Type="varchar" MaxLength="50" />
+          <Property Name="TrimLevel" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar(max)" />
+          <Property Name="Engine" Type="varchar" MaxLength="50" />
+          <Property Name="Transmission" Type="varchar" MaxLength="50" />
+          <Property Name="PurchasePrice" Type="money" />
+          <Property Name="MilesAtPurchase" Type="int" />
+          <Property Name="MilesPerYear" Type="int" />
+          <Property Name="AdjustMPY" Type="bit" />
+          <Property Name="CurrentMiles" Type="int" />
+          <Property Name="CurrentMilesDate" Type="datetime" />
+          <Property Name="PreviousOwners" Type="int" />
+          <Property Name="SMS" Type="varchar" MaxLength="255" />
+          <Property Name="IsPublic" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'mcpnet.dbo.DateInterval' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="DateInterval">
+          <Key>
+            <PropertyRef Name="MonthsValue" />
+            <PropertyRef Name="MonthsDescr" />
+          </Key>
+          <Property Name="MonthsValue" Type="int" Nullable="false" />
+          <Property Name="MonthsDescr" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Fuel">
+          <Key>
+            <PropertyRef Name="FuelID" />
+          </Key>
+          <Property Name="FuelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="BeginOdo" Type="float" />
+          <Property Name="EndOdo" Type="float" />
+          <Property Name="Miles" Type="float" />
+          <Property Name="Gallons" Type="float" />
+          <Property Name="MoneySpent" Type="money" />
+          <Property Name="Comments" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'mcpnet.dbo.Guestbook' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="Guestbook">
+          <Key>
+            <PropertyRef Name="GuestbookID" />
+          </Key>
+          <Property Name="GuestbookID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" />
+          <Property Name="FromUserID" Type="int" />
+          <Property Name="Message" Type="varchar" MaxLength="4000" />
+          <Property Name="MessageDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="IssueItems">
+          <Key>
+            <PropertyRef Name="IssueItemID" />
+          </Key>
+          <Property Name="IssueItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IssueID" Type="int" Nullable="false" />
+          <Property Name="JobID" Type="int" />
+          <Property Name="MaintenanceID" Type="int" />
+          <Property Name="JobDescr" Type="varchar" MaxLength="500" />
+          <Property Name="Mileage" Type="int" />
+          <Property Name="Date" Type="smalldatetime" />
+          <Property Name="Cost" Type="smallmoney" />
+          <Property Name="Comments" Type="varchar" MaxLength="1000" />
+          <Property Name="IsMaintenance" Type="bit" />
+        </EntityType>
+        <EntityType Name="Issues">
+          <Key>
+            <PropertyRef Name="IssueID" />
+          </Key>
+          <Property Name="IssueID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="IssueName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="IssueDescr" Type="varchar" MaxLength="1000" />
+          <Property Name="IsResolved" Type="bit" />
+        </EntityType>
+        <EntityType Name="Jobs">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" />
+          <Property Name="JobDescr" Type="varchar" MaxLength="500" />
+          <Property Name="MileageInterval" Type="int" />
+          <Property Name="DateInterval" Type="int" />
+        </EntityType>
+        <EntityType Name="LoginHistory">
+          <Key>
+            <PropertyRef Name="LoginHistoryID" />
+          </Key>
+          <Property Name="LoginHistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LoginTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Maintenance">
+          <Key>
+            <PropertyRef Name="MaintenanceID" />
+          </Key>
+          <Property Name="MaintenanceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="Mileage" Type="int" />
+          <Property Name="Date" Type="smalldatetime" />
+          <Property Name="Cost" Type="smallmoney" />
+          <Property Name="MileageDueNext" Type="int" />
+          <Property Name="DateDueNext" Type="datetime" />
+          <Property Name="Comments" Type="varchar" MaxLength="1000" />
+          <Property Name="WarningEmailSent" Type="datetime" />
+          <Property Name="OverdueEmailSent" Type="datetime" />
+          <Property Name="IgnoreWarning" Type="bit" />
+          <Property Name="IgnoreOverdue" Type="bit" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="NoteTitle" Type="varchar" Nullable="false" MaxLength="512" />
+          <Property Name="NoteText" Type="varchar" MaxLength="4000" />
+          <Property Name="MaintenanceID" Type="int" />
+        </EntityType>
+        <EntityType Name="OdometerHistory">
+          <Key>
+            <PropertyRef Name="OdometerHistoryID" />
+          </Key>
+          <Property Name="OdometerHistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" />
+          <Property Name="OdometerReading" Type="float" />
+          <Property Name="Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProjectItems">
+          <Key>
+            <PropertyRef Name="ProjectItemID" />
+          </Key>
+          <Property Name="ProjectItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProjectItemName" Type="varchar" MaxLength="50" />
+          <Property Name="ProjectItemDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="Vendor" Type="varchar" MaxLength="200" />
+          <Property Name="PartNumber" Type="varchar" MaxLength="200" />
+          <Property Name="Link" Type="varchar" MaxLength="500" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Purchased" Type="bit" />
+          <Property Name="Shared" Type="bit" />
+          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="Installed" Type="bit" />
+          <Property Name="InstallDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="int" Nullable="false" />
+          <Property Name="ProjectName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProjectDescr" Type="varchar" MaxLength="1000" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="Budget" Type="money" />
+          <Property Name="Completed" Type="bit" Nullable="false" />
+          <Property Name="CompletionDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ShoppingList">
+          <Key>
+            <PropertyRef Name="ShoppingListID" />
+          </Key>
+          <Property Name="ShoppingListID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="int" Nullable="false" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="1000" />
+          <Property Name="ItemLink" Type="varchar" MaxLength="1000" />
+          <Property Name="ItemPrice" Type="smallmoney" />
+          <Property Name="Quantity" Type="int" />
+        </EntityType>
+        <EntityType Name="UsernameQueries">
+          <Key>
+            <PropertyRef Name="UsernameQueryID" />
+          </Key>
+          <Property Name="UsernameQueryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="QueryDate" Type="datetime" />
+          <Property Name="IP" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="1000" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NotificationDays" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="Referral" Type="varchar" MaxLength="100" />
+          <Property Name="InitialIP" Type="varchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Articles_ArticleStatus">
+          <End Role="ArticleCategories" Type="mcpnetModel.Store.ArticleCategories" Multiplicity="0..1" />
+          <End Role="Articles" Type="mcpnetModel.Store.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleCategories">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Articles_Users">
+          <End Role="Users" Type="mcpnetModel.Store.Users" Multiplicity="0..1" />
+          <End Role="Articles" Type="mcpnetModel.Store.Articles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_Users">
+          <End Role="Users" Type="mcpnetModel.Store.Users" Multiplicity="1" />
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fuel_Cars">
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="1" />
+          <End Role="Fuel" Type="mcpnetModel.Store.Fuel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Fuel">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssueItems_Issues">
+          <End Role="Issues" Type="mcpnetModel.Store.Issues" Multiplicity="1" />
+          <End Role="IssueItems" Type="mcpnetModel.Store.IssueItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issues">
+              <PropertyRef Name="IssueID" />
+            </Principal>
+            <Dependent Role="IssueItems">
+              <PropertyRef Name="IssueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssueItems_Jobs">
+          <End Role="Jobs" Type="mcpnetModel.Store.Jobs" Multiplicity="0..1" />
+          <End Role="IssueItems" Type="mcpnetModel.Store.IssueItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="IssueItems">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssueItems_Maintenance">
+          <End Role="Maintenance" Type="mcpnetModel.Store.Maintenance" Multiplicity="0..1" />
+          <End Role="IssueItems" Type="mcpnetModel.Store.IssueItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="IssueItems">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issues_Cars">
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="1" />
+          <End Role="Issues" Type="mcpnetModel.Store.Issues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Issues">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginHistory_Users">
+          <End Role="Users" Type="mcpnetModel.Store.Users" Multiplicity="1" />
+          <End Role="LoginHistory" Type="mcpnetModel.Store.LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Cars">
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="1" />
+          <End Role="Maintenance" Type="mcpnetModel.Store.Maintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Maintenance">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Jobs">
+          <End Role="Jobs" Type="mcpnetModel.Store.Jobs" Multiplicity="1" />
+          <End Role="Maintenance" Type="mcpnetModel.Store.Maintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="Maintenance">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_Cars">
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="1" />
+          <End Role="Notes" Type="mcpnetModel.Store.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdometerHistory_Cars">
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="0..1" />
+          <End Role="OdometerHistory" Type="mcpnetModel.Store.OdometerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="OdometerHistory">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectItems_Projects">
+          <End Role="Projects" Type="mcpnetModel.Store.Projects" Multiplicity="1" />
+          <End Role="ProjectItems" Type="mcpnetModel.Store.ProjectItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ProjectItems">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cars">
+          <End Role="Cars" Type="mcpnetModel.Store.Cars" Multiplicity="1" />
+          <End Role="Projects" Type="mcpnetModel.Store.Projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingList_Jobs">
+          <End Role="Jobs" Type="mcpnetModel.Store.Jobs" Multiplicity="1" />
+          <End Role="ShoppingList" Type="mcpnetModel.Store.ShoppingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="ShoppingList">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ufGetAdjustedMPY" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ufGetDateDue" ReturnType="datetime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="ufGetMileageDue" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobID" Type="int" Mode="In" />
+          <Parameter Name="Mileage" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ufGetNotificationMiles" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ufGetProjectedMiles" ReturnType="float" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspActivateAccount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspAddJobAndMaintenance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="JobDescr" Type="varchar" Mode="In" />
+          <Parameter Name="MileageInterval" Type="int" Mode="In" />
+          <Parameter Name="DateInterval" Type="varchar" Mode="In" />
+          <Parameter Name="Mileage" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Cost" Type="money" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspAddNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="NoteTitle" Type="varchar" Mode="In" />
+          <Parameter Name="NoteText" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspAuthenticateNewUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="InOut" />
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="Referral" Type="varchar" Mode="In" />
+          <Parameter Name="InitialIP" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspAuthenticateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="varchar" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspChangeUserPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="OldPassword" Type="varchar" Mode="In" />
+          <Parameter Name="NewPassword" Type="varchar" Mode="In" />
+          <Parameter Name="Changed" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspCheckForDailyEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Today" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspCheckUsername" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="Available" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspCreateCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Nickname" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="varchar" Mode="In" />
+          <Parameter Name="Make" Type="varchar" Mode="In" />
+          <Parameter Name="Model" Type="varchar" Mode="In" />
+          <Parameter Name="Trim" Type="varchar" Mode="In" />
+          <Parameter Name="MilesPerYear" Type="float" Mode="In" />
+          <Parameter Name="CurrentMiles" Type="float" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+          <Parameter Name="CarID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspCreateJob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="JobDescr" Type="varchar" Mode="In" />
+          <Parameter Name="MileageInterval" Type="int" Mode="In" />
+          <Parameter Name="DateInterval" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteFuel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FuelID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteJob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteMaintenance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaintenanceID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="NoteID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspDeleteProjectItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectItemID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetAllCars" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetAllMPGLogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetArticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ArticleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetArticleCategories" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetArticlesForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetCarDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetCarHealth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetCarsForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetCarsForUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetDateIntervals" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetFuelForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetGarageSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchTerm" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspGetGuestbookForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetJobDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetJobsForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetJobsForCarDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetJobsForCarDetails2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetMaintenanceAlertsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetMaintenanceAlertsForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetMaintenanceAlertsForUserBeta" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetMaintenanceForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetMaintenanceForCarNewest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetMileagePerYearForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetNotesForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetNotesForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetOverdueItemsForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectAlertsForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectedMiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectItemsForSharing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectsForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetProjectsForSharing" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetPublicLogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetPublishedArticles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspGetReportsForCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetReportsForCarNew" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetUpcomingItemsForUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetUserHomePage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetUserInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGetUsernameFromEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspIgnoreMaintenanceOverdue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaintenanceID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspIgnoreMaintenanceWarning" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaintenanceID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspInsertArticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="ArticleName" Type="varchar" Mode="In" />
+          <Parameter Name="ArticleText" Type="text" Mode="In" />
+          <Parameter Name="ArticleCategoryID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspInsertFuel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="BeginOdo" Type="float" Mode="In" />
+          <Parameter Name="EndOdo" Type="float" Mode="In" />
+          <Parameter Name="Miles" Type="float" Mode="In" />
+          <Parameter Name="Gallons" Type="float" Mode="In" />
+          <Parameter Name="Cost" Type="money" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspInsertGuestbookEntry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspInsertLoginHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspInsertMaintenance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="JobID" Type="int" Mode="In" />
+          <Parameter Name="Mileage" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Cost" Type="money" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspInsertOdometerHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="Miles" Type="float" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspInsertProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="ProjectName" Type="varchar" Mode="In" />
+          <Parameter Name="ProjectDescr" Type="varchar" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="DueDate" Type="datetime" Mode="In" />
+          <Parameter Name="Budget" Type="money" Mode="In" />
+          <Parameter Name="ProjectID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspInsertProjectItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="ProjectItemName" Type="varchar" Mode="In" />
+          <Parameter Name="ProjectItemDescr" Type="varchar" Mode="In" />
+          <Parameter Name="Vendor" Type="varchar" Mode="In" />
+          <Parameter Name="PartNumber" Type="varchar" Mode="In" />
+          <Parameter Name="Link" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="money" Mode="In" />
+          <Parameter Name="Purchased" Type="bit" Mode="In" />
+          <Parameter Name="PurchaseDate" Type="datetime" Mode="In" />
+          <Parameter Name="Installed" Type="bit" Mode="In" />
+          <Parameter Name="InstallDate" Type="datetime" Mode="In" />
+          <Parameter Name="Shared" Type="bit" Mode="In" />
+          <Parameter Name="ProjectItemID" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="uspInsertUsernameQuery" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspIsCarOwner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="CarID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspIsFuelOwner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FuelID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspIsJobOwner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="JobID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspIsMaintenanceOwner" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="MaintenanceID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspResetPassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="NewEncPassword" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSaveCar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="Nickname" Type="varchar" Mode="In" />
+          <Parameter Name="Year" Type="varchar" Mode="In" />
+          <Parameter Name="Make" Type="varchar" Mode="In" />
+          <Parameter Name="Model" Type="varchar" Mode="In" />
+          <Parameter Name="Trim" Type="varchar" Mode="In" />
+          <Parameter Name="MilesPerYear" Type="float" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspSaveJob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="JobID" Type="int" Mode="In" />
+          <Parameter Name="JobDescr" Type="varchar" Mode="In" />
+          <Parameter Name="MileageInterval" Type="int" Mode="In" />
+          <Parameter Name="DateInterval" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspSetCarPublicStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="IsPublic" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateCurrentMiles" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="Miles" Type="float" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateDailyEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uspUpdateFuel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FuelID" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="BOdo" Type="float" Mode="In" />
+          <Parameter Name="EOdo" Type="float" Mode="In" />
+          <Parameter Name="Miles" Type="float" Mode="In" />
+          <Parameter Name="Gallons" Type="float" Mode="In" />
+          <Parameter Name="MoneySpent" Type="money" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateMaintenance" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaintenanceID" Type="int" Mode="In" />
+          <Parameter Name="JobID" Type="int" Mode="In" />
+          <Parameter Name="Mileage" Type="int" Mode="In" />
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="Cost" Type="money" Mode="In" />
+          <Parameter Name="Comments" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateMaintenanceAlertSent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaintenanceID" Type="int" Mode="In" />
+          <Parameter Name="AlertType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateNote" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="CarID" Type="int" Mode="In" />
+          <Parameter Name="NoteID" Type="int" Mode="In" />
+          <Parameter Name="NoteTitle" Type="varchar" Mode="In" />
+          <Parameter Name="NoteText" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateProject" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+          <Parameter Name="ProjectName" Type="varchar" Mode="In" />
+          <Parameter Name="ProjectDescr" Type="varchar" Mode="In" />
+          <Parameter Name="StartDate" Type="datetime" Mode="In" />
+          <Parameter Name="DueDate" Type="datetime" Mode="In" />
+          <Parameter Name="Budget" Type="money" Mode="In" />
+          <Parameter Name="Completed" Type="bit" Mode="In" />
+          <Parameter Name="CompletionDate" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateProjectItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectItemID" Type="int" Mode="In" />
+          <Parameter Name="ProjectItemName" Type="varchar" Mode="In" />
+          <Parameter Name="Vendor" Type="varchar" Mode="In" />
+          <Parameter Name="PartNumber" Type="varchar" Mode="In" />
+          <Parameter Name="Link" Type="varchar" Mode="In" />
+          <Parameter Name="Price" Type="money" Mode="In" />
+          <Parameter Name="Purchased" Type="bit" Mode="In" />
+          <Parameter Name="Shared" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="uspUpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="LastName" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspVerifyUserInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Username" Type="varchar" Mode="In" />
+          <Parameter Name="FirstName" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mcpnetModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="mcpnetEntities_dev" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Alerts" EntityType="mcpnetModel.Alert" />
+          <EntitySet Name="ArticleCategories" EntityType="mcpnetModel.ArticleCategory" />
+          <EntitySet Name="Articles" EntityType="mcpnetModel.Article" />
+          <EntitySet Name="ArticleStatus" EntityType="mcpnetModel.ArticleStatu" />
+          <EntitySet Name="Cars" EntityType="mcpnetModel.Car" />
+          <EntitySet Name="DateIntervals" EntityType="mcpnetModel.DateInterval" />
+          <EntitySet Name="Fuels" EntityType="mcpnetModel.Fuel" />
+          <EntitySet Name="Guestbooks" EntityType="mcpnetModel.Guestbook" />
+          <EntitySet Name="IssueItems" EntityType="mcpnetModel.IssueItem" />
+          <EntitySet Name="Issues" EntityType="mcpnetModel.Issue" />
+          <EntitySet Name="Jobs" EntityType="mcpnetModel.Job" />
+          <EntitySet Name="LoginHistories" EntityType="mcpnetModel.LoginHistory" />
+          <EntitySet Name="Maintenances" EntityType="mcpnetModel.Maintenance" />
+          <EntitySet Name="Notes" EntityType="mcpnetModel.Note" />
+          <EntitySet Name="OdometerHistories" EntityType="mcpnetModel.OdometerHistory" />
+          <EntitySet Name="ProjectItems" EntityType="mcpnetModel.ProjectItem" />
+          <EntitySet Name="Projects" EntityType="mcpnetModel.Project" />
+          <EntitySet Name="ShoppingLists" EntityType="mcpnetModel.ShoppingList" />
+          <EntitySet Name="UsernameQueries" EntityType="mcpnetModel.UsernameQuery" />
+          <EntitySet Name="Users" EntityType="mcpnetModel.User" />
+          <AssociationSet Name="FK_Articles_ArticleStatus" Association="mcpnetModel.FK_Articles_ArticleStatus">
+            <End Role="ArticleCategories" EntitySet="ArticleCategories" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Articles_Users" Association="mcpnetModel.FK_Articles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Articles" EntitySet="Articles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cars_Users" Association="mcpnetModel.FK_Cars_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Cars" EntitySet="Cars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fuel_Cars" Association="mcpnetModel.FK_Fuel_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Fuel" EntitySet="Fuels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Issues_Cars" Association="mcpnetModel.FK_Issues_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Issues" EntitySet="Issues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Cars" Association="mcpnetModel.FK_Maintenance_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Maintenance" EntitySet="Maintenances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Notes_Cars" Association="mcpnetModel.FK_Notes_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OdometerHistory_Cars" Association="mcpnetModel.FK_OdometerHistory_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="OdometerHistory" EntitySet="OdometerHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Cars" Association="mcpnetModel.FK_Projects_Cars">
+            <End Role="Cars" EntitySet="Cars" />
+            <End Role="Projects" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssueItems_Issues" Association="mcpnetModel.FK_IssueItems_Issues">
+            <End Role="Issues" EntitySet="Issues" />
+            <End Role="IssueItems" EntitySet="IssueItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssueItems_Jobs" Association="mcpnetModel.FK_IssueItems_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="IssueItems" EntitySet="IssueItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IssueItems_Maintenance" Association="mcpnetModel.FK_IssueItems_Maintenance">
+            <End Role="Maintenance" EntitySet="Maintenances" />
+            <End Role="IssueItems" EntitySet="IssueItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Maintenance_Jobs" Association="mcpnetModel.FK_Maintenance_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="Maintenance" EntitySet="Maintenances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ShoppingList_Jobs" Association="mcpnetModel.FK_ShoppingList_Jobs">
+            <End Role="Jobs" EntitySet="Jobs" />
+            <End Role="ShoppingList" EntitySet="ShoppingLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginHistory_Users" Association="mcpnetModel.FK_LoginHistory_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="LoginHistory" EntitySet="LoginHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectItems_Projects" Association="mcpnetModel.FK_ProjectItems_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectItems" EntitySet="ProjectItems" />
+          </AssociationSet>
+          <FunctionImport Name="uspActivateAccount">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspAddJobAndMaintenance" ReturnType="Collection(Decimal)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="JobDescr" Mode="In" Type="String" />
+            <Parameter Name="MileageInterval" Mode="In" Type="Int32" />
+            <Parameter Name="DateInterval" Mode="In" Type="String" />
+            <Parameter Name="Mileage" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Cost" Mode="In" Type="Decimal" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspAddNote">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="NoteTitle" Mode="In" Type="String" />
+            <Parameter Name="NoteText" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspAuthenticateNewUser">
+            <Parameter Name="UserID" Mode="InOut" Type="Int32" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Referral" Mode="In" Type="String" />
+            <Parameter Name="InitialIP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspAuthenticateUser">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="UserID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspChangeUserPassword">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="OldPassword" Mode="In" Type="String" />
+            <Parameter Name="NewPassword" Mode="In" Type="String" />
+            <Parameter Name="Changed" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspCheckForDailyEmail" ReturnType="Collection(Int32)">
+            <Parameter Name="Today" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspCheckUsername">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Available" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspCreateCar">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Nickname" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Trim" Mode="In" Type="String" />
+            <Parameter Name="MilesPerYear" Mode="In" Type="Double" />
+            <Parameter Name="CurrentMiles" Mode="In" Type="Double" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+            <Parameter Name="CarID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspCreateJob">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="JobDescr" Mode="In" Type="String" />
+            <Parameter Name="MileageInterval" Mode="In" Type="Int32" />
+            <Parameter Name="DateInterval" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteCar">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteFuel">
+            <Parameter Name="FuelID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteJob">
+            <Parameter Name="JobID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteMaintenance">
+            <Parameter Name="MaintenanceID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteNote">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="NoteID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteProject">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspDeleteProjectItem">
+            <Parameter Name="ProjectItemID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetAllCars" ReturnType="Collection(mcpnetModel.uspGetAllCars_Result)" />
+          <FunctionImport Name="uspGetAllMPGLogs" ReturnType="Collection(mcpnetModel.uspGetAllMPGLogs_Result)" />
+          <FunctionImport Name="uspGetArticle" ReturnType="Collection(mcpnetModel.uspGetArticle_Result)">
+            <Parameter Name="ArticleID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetArticleCategories" ReturnType="Collection(mcpnetModel.uspGetArticleCategories_Result)" />
+          <FunctionImport Name="uspGetArticlesForUser" ReturnType="Collection(mcpnetModel.uspGetArticlesForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetCarDetails" ReturnType="Collection(mcpnetModel.uspGetCarDetails_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetCarHealth" ReturnType="Collection(mcpnetModel.uspGetCarHealth_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetCarsForUser" ReturnType="Collection(mcpnetModel.uspGetCarsForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetCarsForUserDetails" ReturnType="Collection(mcpnetModel.uspGetCarsForUserDetails_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetDateIntervals" ReturnType="Collection(mcpnetModel.uspGetDateIntervals_Result)" />
+          <FunctionImport Name="uspGetFuelForCar" ReturnType="Collection(mcpnetModel.uspGetFuelForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetGarageSearch" ReturnType="Collection(mcpnetModel.uspGetGarageSearch_Result)">
+            <Parameter Name="SearchTerm" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetGuestbookForCar" ReturnType="Collection(mcpnetModel.uspGetGuestbookForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetJobDetails" ReturnType="Collection(mcpnetModel.uspGetJobDetails_Result)">
+            <Parameter Name="JobID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetJobsForCar" ReturnType="Collection(mcpnetModel.uspGetJobsForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetJobsForCarDetails" ReturnType="Collection(mcpnetModel.uspGetJobsForCarDetails_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetJobsForCarDetails2" ReturnType="Collection(mcpnetModel.uspGetJobsForCarDetails2_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetMaintenanceAlertsAll" ReturnType="Collection(mcpnetModel.uspGetMaintenanceAlertsAll_Result)" />
+          <FunctionImport Name="uspGetMaintenanceAlertsForUser" ReturnType="Collection(mcpnetModel.uspGetMaintenanceAlertsForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetMaintenanceAlertsForUserBeta" ReturnType="Collection(mcpnetModel.uspGetMaintenanceAlertsForUserBeta_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetMaintenanceForCar" ReturnType="Collection(Boolean)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetMaintenanceForCarNewest" ReturnType="Collection(mcpnetModel.uspGetMaintenanceForCarNewest_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetMileagePerYearForCar" ReturnType="Collection(mcpnetModel.uspGetMileagePerYearForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetNotesForCar" ReturnType="Collection(mcpnetModel.uspGetNotesForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetNotesForUser" ReturnType="Collection(mcpnetModel.uspGetNotesForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetOverdueItemsForUser" ReturnType="Collection(mcpnetModel.uspGetOverdueItemsForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectAlertsForUser" ReturnType="Collection(mcpnetModel.uspGetProjectAlertsForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectDetails" ReturnType="Collection(mcpnetModel.uspGetProjectDetails_Result)">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectedMiles" ReturnType="Collection(Double)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectItems" ReturnType="Collection(mcpnetModel.uspGetProjectItems_Result)">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectItemsForSharing" ReturnType="Collection(mcpnetModel.uspGetProjectItemsForSharing_Result)">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectsForCar" ReturnType="Collection(mcpnetModel.uspGetProjectsForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetProjectsForSharing" ReturnType="Collection(mcpnetModel.uspGetProjectsForSharing_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetPublicLogs" ReturnType="Collection(mcpnetModel.uspGetPublicLogs_Result)" />
+          <FunctionImport Name="uspGetPublishedArticles" ReturnType="Collection(mcpnetModel.uspGetPublishedArticles_Result)" />
+          <FunctionImport Name="uspGetReportsForCar" ReturnType="Collection(mcpnetModel.uspGetReportsForCar_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetReportsForCarNew" ReturnType="Collection(mcpnetModel.uspGetReportsForCarNew_Result)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetUpcomingItemsForUser" ReturnType="Collection(mcpnetModel.uspGetUpcomingItemsForUser_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetUserHomePage" ReturnType="Collection(mcpnetModel.uspGetUserHomePage_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetUserInfo" ReturnType="Collection(mcpnetModel.uspGetUserInfo_Result)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspGetUsernameFromEmail" ReturnType="Collection(String)">
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspIgnoreMaintenanceOverdue">
+            <Parameter Name="MaintenanceID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspIgnoreMaintenanceWarning">
+            <Parameter Name="MaintenanceID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertArticle">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="ArticleName" Mode="In" Type="String" />
+            <Parameter Name="ArticleText" Mode="In" Type="String" />
+            <Parameter Name="ArticleCategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertFuel" ReturnType="Collection(Decimal)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="BeginOdo" Mode="In" Type="Double" />
+            <Parameter Name="EndOdo" Mode="In" Type="Double" />
+            <Parameter Name="Miles" Mode="In" Type="Double" />
+            <Parameter Name="Gallons" Mode="In" Type="Double" />
+            <Parameter Name="Cost" Mode="In" Type="Decimal" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertGuestbookEntry">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertLoginHistory">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertMaintenance" ReturnType="Collection(Decimal)">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="JobID" Mode="In" Type="Int32" />
+            <Parameter Name="Mileage" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Cost" Mode="In" Type="Decimal" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertOdometerHistory">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="Miles" Mode="In" Type="Double" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertProject">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="ProjectName" Mode="In" Type="String" />
+            <Parameter Name="ProjectDescr" Mode="In" Type="String" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Budget" Mode="In" Type="Decimal" />
+            <Parameter Name="ProjectID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertProjectItem">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="ProjectItemName" Mode="In" Type="String" />
+            <Parameter Name="ProjectItemDescr" Mode="In" Type="String" />
+            <Parameter Name="Vendor" Mode="In" Type="String" />
+            <Parameter Name="PartNumber" Mode="In" Type="String" />
+            <Parameter Name="Link" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Purchased" Mode="In" Type="Boolean" />
+            <Parameter Name="PurchaseDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Installed" Mode="In" Type="Boolean" />
+            <Parameter Name="InstallDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Shared" Mode="In" Type="Boolean" />
+            <Parameter Name="ProjectItemID" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInsertUsernameQuery">
+            <Parameter Name="Username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspIsCarOwner" ReturnType="Collection(Int32)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspIsFuelOwner" ReturnType="Collection(Int32)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FuelID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspIsJobOwner" ReturnType="Collection(Int32)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="JobID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspIsMaintenanceOwner" ReturnType="Collection(Int32)">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="MaintenanceID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspResetPassword">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="NewEncPassword" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSaveCar">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="Nickname" Mode="In" Type="String" />
+            <Parameter Name="Year" Mode="In" Type="String" />
+            <Parameter Name="Make" Mode="In" Type="String" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Trim" Mode="In" Type="String" />
+            <Parameter Name="MilesPerYear" Mode="In" Type="Double" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspSaveJob">
+            <Parameter Name="JobID" Mode="In" Type="Int32" />
+            <Parameter Name="JobDescr" Mode="In" Type="String" />
+            <Parameter Name="MileageInterval" Mode="In" Type="Int32" />
+            <Parameter Name="DateInterval" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspSetCarPublicStatus">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="IsPublic" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateCurrentMiles">
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="Miles" Mode="In" Type="Double" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateDailyEmail" />
+          <FunctionImport Name="uspUpdateFuel">
+            <Parameter Name="FuelID" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="BOdo" Mode="In" Type="Double" />
+            <Parameter Name="EOdo" Mode="In" Type="Double" />
+            <Parameter Name="Miles" Mode="In" Type="Double" />
+            <Parameter Name="Gallons" Mode="In" Type="Double" />
+            <Parameter Name="MoneySpent" Mode="In" Type="Decimal" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateMaintenance">
+            <Parameter Name="MaintenanceID" Mode="In" Type="Int32" />
+            <Parameter Name="JobID" Mode="In" Type="Int32" />
+            <Parameter Name="Mileage" Mode="In" Type="Int32" />
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Cost" Mode="In" Type="Decimal" />
+            <Parameter Name="Comments" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateMaintenanceAlertSent">
+            <Parameter Name="MaintenanceID" Mode="In" Type="Int32" />
+            <Parameter Name="AlertType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateNote">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="CarID" Mode="In" Type="Int32" />
+            <Parameter Name="NoteID" Mode="In" Type="Int32" />
+            <Parameter Name="NoteTitle" Mode="In" Type="String" />
+            <Parameter Name="NoteText" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateProject">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+            <Parameter Name="ProjectName" Mode="In" Type="String" />
+            <Parameter Name="ProjectDescr" Mode="In" Type="String" />
+            <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="DueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Budget" Mode="In" Type="Decimal" />
+            <Parameter Name="Completed" Mode="In" Type="Boolean" />
+            <Parameter Name="CompletionDate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateProjectItem">
+            <Parameter Name="ProjectItemID" Mode="In" Type="Int32" />
+            <Parameter Name="ProjectItemName" Mode="In" Type="String" />
+            <Parameter Name="Vendor" Mode="In" Type="String" />
+            <Parameter Name="PartNumber" Mode="In" Type="String" />
+            <Parameter Name="Link" Mode="In" Type="String" />
+            <Parameter Name="Price" Mode="In" Type="Decimal" />
+            <Parameter Name="Purchased" Mode="In" Type="Boolean" />
+            <Parameter Name="Shared" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="uspUpdateUser">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspVerifyUserInfo" ReturnType="Collection(Int32)">
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Alert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="AlertID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="EmailSent" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ArticleCategory">
+          <Key>
+            <PropertyRef Name="ArticleCategoryID" />
+          </Key>
+          <Property Name="ArticleCategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleCategory1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Articles" Relationship="mcpnetModel.FK_Articles_ArticleStatus" FromRole="ArticleCategories" ToRole="Articles" />
+        </EntityType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="ArticleID" />
+          </Key>
+          <Property Name="ArticleID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ArticleName" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ArticleText" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="ArticleCategoryID" Type="Int32" />
+          <Property Name="ArticleStatusID" Type="Int32" />
+          <NavigationProperty Name="ArticleCategory" Relationship="mcpnetModel.FK_Articles_ArticleStatus" FromRole="Articles" ToRole="ArticleCategories" />
+          <NavigationProperty Name="User" Relationship="mcpnetModel.FK_Articles_Users" FromRole="Articles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="ArticleStatu">
+          <Key>
+            <PropertyRef Name="ArticleStatusID" />
+          </Key>
+          <Property Name="ArticleStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ArticleStatus" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IsPublic" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="CarID" />
+          </Key>
+          <Property Name="CarID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Nickname" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Year" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Make" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Model" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TrimLevel" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Comments" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Engine" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Transmission" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MilesAtPurchase" Type="Int32" />
+          <Property Name="MilesPerYear" Type="Int32" />
+          <Property Name="AdjustMPY" Type="Boolean" />
+          <Property Name="CurrentMiles" Type="Int32" />
+          <Property Name="CurrentMilesDate" Type="DateTime" Precision="3" />
+          <Property Name="PreviousOwners" Type="Int32" />
+          <Property Name="SMS" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="IsPublic" Type="Boolean" />
+          <NavigationProperty Name="User" Relationship="mcpnetModel.FK_Cars_Users" FromRole="Cars" ToRole="Users" />
+          <NavigationProperty Name="Fuels" Relationship="mcpnetModel.FK_Fuel_Cars" FromRole="Cars" ToRole="Fuel" />
+          <NavigationProperty Name="Issues" Relationship="mcpnetModel.FK_Issues_Cars" FromRole="Cars" ToRole="Issues" />
+          <NavigationProperty Name="Maintenances" Relationship="mcpnetModel.FK_Maintenance_Cars" FromRole="Cars" ToRole="Maintenance" />
+          <NavigationProperty Name="Notes" Relationship="mcpnetModel.FK_Notes_Cars" FromRole="Cars" ToRole="Notes" />
+          <NavigationProperty Name="OdometerHistories" Relationship="mcpnetModel.FK_OdometerHistory_Cars" FromRole="Cars" ToRole="OdometerHistory" />
+          <NavigationProperty Name="Projects" Relationship="mcpnetModel.FK_Projects_Cars" FromRole="Cars" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="DateInterval">
+          <Key>
+            <PropertyRef Name="MonthsValue" />
+            <PropertyRef Name="MonthsDescr" />
+          </Key>
+          <Property Name="MonthsValue" Type="Int32" Nullable="false" />
+          <Property Name="MonthsDescr" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Fuel">
+          <Key>
+            <PropertyRef Name="FuelID" />
+          </Key>
+          <Property Name="FuelID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="BeginOdo" Type="Double" />
+          <Property Name="EndOdo" Type="Double" />
+          <Property Name="Miles" Type="Double" />
+          <Property Name="Gallons" Type="Double" />
+          <Property Name="MoneySpent" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Comments" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Car" Relationship="mcpnetModel.FK_Fuel_Cars" FromRole="Fuel" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="Guestbook">
+          <Key>
+            <PropertyRef Name="GuestbookID" />
+          </Key>
+          <Property Name="GuestbookID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" />
+          <Property Name="FromUserID" Type="Int32" />
+          <Property Name="Message" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="MessageDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="IssueItem">
+          <Key>
+            <PropertyRef Name="IssueItemID" />
+          </Key>
+          <Property Name="IssueItemID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IssueID" Type="Int32" Nullable="false" />
+          <Property Name="JobID" Type="Int32" />
+          <Property Name="MaintenanceID" Type="Int32" />
+          <Property Name="JobDescr" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Mileage" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Comments" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="IsMaintenance" Type="Boolean" />
+          <NavigationProperty Name="Issue" Relationship="mcpnetModel.FK_IssueItems_Issues" FromRole="IssueItems" ToRole="Issues" />
+          <NavigationProperty Name="Job" Relationship="mcpnetModel.FK_IssueItems_Jobs" FromRole="IssueItems" ToRole="Jobs" />
+          <NavigationProperty Name="Maintenance" Relationship="mcpnetModel.FK_IssueItems_Maintenance" FromRole="IssueItems" ToRole="Maintenance" />
+        </EntityType>
+        <EntityType Name="Issue">
+          <Key>
+            <PropertyRef Name="IssueID" />
+          </Key>
+          <Property Name="IssueID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="IssueName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IssueDescr" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="IsResolved" Type="Boolean" />
+          <NavigationProperty Name="Car" Relationship="mcpnetModel.FK_Issues_Cars" FromRole="Issues" ToRole="Cars" />
+          <NavigationProperty Name="IssueItems" Relationship="mcpnetModel.FK_IssueItems_Issues" FromRole="Issues" ToRole="IssueItems" />
+        </EntityType>
+        <EntityType Name="Job">
+          <Key>
+            <PropertyRef Name="JobID" />
+          </Key>
+          <Property Name="JobID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" />
+          <Property Name="JobDescr" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="MileageInterval" Type="Int32" />
+          <Property Name="DateInterval" Type="Int32" />
+          <NavigationProperty Name="IssueItems" Relationship="mcpnetModel.FK_IssueItems_Jobs" FromRole="Jobs" ToRole="IssueItems" />
+          <NavigationProperty Name="Maintenances" Relationship="mcpnetModel.FK_Maintenance_Jobs" FromRole="Jobs" ToRole="Maintenance" />
+          <NavigationProperty Name="ShoppingLists" Relationship="mcpnetModel.FK_ShoppingList_Jobs" FromRole="Jobs" ToRole="ShoppingList" />
+        </EntityType>
+        <EntityType Name="LoginHistory">
+          <Key>
+            <PropertyRef Name="LoginHistoryID" />
+          </Key>
+          <Property Name="LoginHistoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LoginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="User" Relationship="mcpnetModel.FK_LoginHistory_Users" FromRole="LoginHistory" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Maintenance">
+          <Key>
+            <PropertyRef Name="MaintenanceID" />
+          </Key>
+          <Property Name="MaintenanceID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="Mileage" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="MileageDueNext" Type="Int32" />
+          <Property Name="DateDueNext" Type="DateTime" Precision="3" />
+          <Property Name="Comments" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="WarningEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="OverdueEmailSent" Type="DateTime" Precision="3" />
+          <Property Name="IgnoreWarning" Type="Boolean" />
+          <Property Name="IgnoreOverdue" Type="Boolean" />
+          <NavigationProperty Name="Car" Relationship="mcpnetModel.FK_Maintenance_Cars" FromRole="Maintenance" ToRole="Cars" />
+          <NavigationProperty Name="IssueItems" Relationship="mcpnetModel.FK_IssueItems_Maintenance" FromRole="Maintenance" ToRole="IssueItems" />
+          <NavigationProperty Name="Job" Relationship="mcpnetModel.FK_Maintenance_Jobs" FromRole="Maintenance" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="NoteID" />
+          </Key>
+          <Property Name="NoteID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="NoteTitle" Type="String" Nullable="false" MaxLength="512" Unicode="false" FixedLength="false" />
+          <Property Name="NoteText" Type="String" MaxLength="4000" Unicode="false" FixedLength="false" />
+          <Property Name="MaintenanceID" Type="Int32" />
+          <NavigationProperty Name="Car" Relationship="mcpnetModel.FK_Notes_Cars" FromRole="Notes" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="OdometerHistory">
+          <Key>
+            <PropertyRef Name="OdometerHistoryID" />
+          </Key>
+          <Property Name="OdometerHistoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" />
+          <Property Name="OdometerReading" Type="Double" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Car" Relationship="mcpnetModel.FK_OdometerHistory_Cars" FromRole="OdometerHistory" ToRole="Cars" />
+        </EntityType>
+        <EntityType Name="ProjectItem">
+          <Key>
+            <PropertyRef Name="ProjectItemID" />
+          </Key>
+          <Property Name="ProjectItemID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProjectItemName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProjectItemDescription" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="Vendor" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="PartNumber" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Link" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Purchased" Type="Boolean" />
+          <Property Name="Shared" Type="Boolean" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="Installed" Type="Boolean" />
+          <Property Name="InstallDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Project" Relationship="mcpnetModel.FK_ProjectItems_Projects" FromRole="ProjectItems" ToRole="Projects" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CarID" Type="Int32" Nullable="false" />
+          <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="ProjectDescr" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="Budget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Completed" Type="Boolean" Nullable="false" />
+          <Property Name="CompletionDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Car" Relationship="mcpnetModel.FK_Projects_Cars" FromRole="Projects" ToRole="Cars" />
+          <NavigationProperty Name="ProjectItems" Relationship="mcpnetModel.FK_ProjectItems_Projects" FromRole="Projects" ToRole="ProjectItems" />
+        </EntityType>
+        <EntityType Name="ShoppingList">
+          <Key>
+            <PropertyRef Name="ShoppingListID" />
+          </Key>
+          <Property Name="ShoppingListID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="JobID" Type="Int32" Nullable="false" />
+          <Property Name="ItemDescription" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ItemLink" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="ItemPrice" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Quantity" Type="Int32" />
+          <NavigationProperty Name="Job" Relationship="mcpnetModel.FK_ShoppingList_Jobs" FromRole="ShoppingList" ToRole="Jobs" />
+        </EntityType>
+        <EntityType Name="UsernameQuery">
+          <Key>
+            <PropertyRef Name="UsernameQueryID" />
+          </Key>
+          <Property Name="UsernameQueryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="QueryDate" Type="DateTime" Precision="3" />
+          <Property Name="IP" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="1000" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NotificationDays" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="Referral" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="InitialIP" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Articles" Relationship="mcpnetModel.FK_Articles_Users" FromRole="Users" ToRole="Articles" />
+          <NavigationProperty Name="Cars" Relationship="mcpnetModel.FK_Cars_Users" FromRole="Users" ToRole="Cars" />
+          <NavigationProperty Name="LoginHistories" Relationship="mcpnetModel.FK_LoginHistory_Users" FromRole="Users" ToRole="LoginHistory" />
+        </EntityType>
+        <Association Name="FK_Articles_ArticleStatus">
+          <End Role="ArticleCategories" Type="mcpnetModel.ArticleCategory" Multiplicity="0..1" />
+          <End Role="Articles" Type="mcpnetModel.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArticleCategories">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="ArticleCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Articles_Users">
+          <End Role="Users" Type="mcpnetModel.User" Multiplicity="0..1" />
+          <End Role="Articles" Type="mcpnetModel.Article" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Articles">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cars_Users">
+          <End Role="Users" Type="mcpnetModel.User" Multiplicity="1" />
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Cars">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fuel_Cars">
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="1" />
+          <End Role="Fuel" Type="mcpnetModel.Fuel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Fuel">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Issues_Cars">
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="1" />
+          <End Role="Issues" Type="mcpnetModel.Issue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Issues">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Cars">
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="1" />
+          <End Role="Maintenance" Type="mcpnetModel.Maintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Maintenance">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Notes_Cars">
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="1" />
+          <End Role="Notes" Type="mcpnetModel.Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OdometerHistory_Cars">
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="0..1" />
+          <End Role="OdometerHistory" Type="mcpnetModel.OdometerHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="OdometerHistory">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Cars">
+          <End Role="Cars" Type="mcpnetModel.Car" Multiplicity="1" />
+          <End Role="Projects" Type="mcpnetModel.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cars">
+              <PropertyRef Name="CarID" />
+            </Principal>
+            <Dependent Role="Projects">
+              <PropertyRef Name="CarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssueItems_Issues">
+          <End Role="Issues" Type="mcpnetModel.Issue" Multiplicity="1" />
+          <End Role="IssueItems" Type="mcpnetModel.IssueItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Issues">
+              <PropertyRef Name="IssueID" />
+            </Principal>
+            <Dependent Role="IssueItems">
+              <PropertyRef Name="IssueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssueItems_Jobs">
+          <End Role="Jobs" Type="mcpnetModel.Job" Multiplicity="0..1" />
+          <End Role="IssueItems" Type="mcpnetModel.IssueItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="IssueItems">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IssueItems_Maintenance">
+          <End Role="Maintenance" Type="mcpnetModel.Maintenance" Multiplicity="0..1" />
+          <End Role="IssueItems" Type="mcpnetModel.IssueItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Maintenance">
+              <PropertyRef Name="MaintenanceID" />
+            </Principal>
+            <Dependent Role="IssueItems">
+              <PropertyRef Name="MaintenanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Maintenance_Jobs">
+          <End Role="Jobs" Type="mcpnetModel.Job" Multiplicity="1" />
+          <End Role="Maintenance" Type="mcpnetModel.Maintenance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="Maintenance">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ShoppingList_Jobs">
+          <End Role="Jobs" Type="mcpnetModel.Job" Multiplicity="1" />
+          <End Role="ShoppingList" Type="mcpnetModel.ShoppingList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jobs">
+              <PropertyRef Name="JobID" />
+            </Principal>
+            <Dependent Role="ShoppingList">
+              <PropertyRef Name="JobID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginHistory_Users">
+          <End Role="Users" Type="mcpnetModel.User" Multiplicity="1" />
+          <End Role="LoginHistory" Type="mcpnetModel.LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectItems_Projects">
+          <End Role="Projects" Type="mcpnetModel.Project" Multiplicity="1" />
+          <End Role="ProjectItems" Type="mcpnetModel.ProjectItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ProjectItems">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="uspGetAllCars_Result">
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Make" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TrimLevel" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetAllMPGLogs_Result">
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Make" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TrimLevel" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="LogEntries" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetArticle_Result">
+          <Property Type="Int32" Name="ArticleID" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ArticleCategoryID" Nullable="false" />
+          <Property Type="String" Name="ArticleCategory" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ArticleName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ArticleText" Nullable="true" MaxLength="Max" />
+        </ComplexType>
+        <ComplexType Name="uspGetArticleCategories_Result">
+          <Property Type="Int32" Name="ArticleCategoryID" Nullable="false" />
+          <Property Type="String" Name="ArticleCategory" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetArticlesForUser_Result">
+          <Property Type="Int32" Name="ArticleID" Nullable="false" />
+          <Property Type="String" Name="ArticleName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ArticleCategory" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ArticleStatus" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetCarDetails_Result">
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Make" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TrimLevel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Comments" Nullable="true" />
+          <Property Type="String" Name="Engine" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Transmission" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="PurchasePrice" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="MilesAtPurchase" Nullable="true" />
+          <Property Type="Int32" Name="MilesPerYear" Nullable="true" />
+          <Property Type="Boolean" Name="AdjustMPY" Nullable="true" />
+          <Property Type="Int32" Name="CurrentMiles" Nullable="true" />
+          <Property Type="DateTime" Name="CurrentMilesDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="PreviousOwners" Nullable="true" />
+          <Property Type="String" Name="SMS" Nullable="true" MaxLength="255" />
+          <Property Type="Boolean" Name="IsPublic" Nullable="true" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetCarHealth_Result">
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Mileage" Nullable="true" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="16" />
+          <Property Type="Int32" Name="MileageDueNext" Nullable="true" />
+          <Property Type="Double" Name="PercentMileage" Nullable="true" />
+          <Property Type="DateTime" Name="DateDueNext" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="PercentDate" Nullable="true" Precision="30" Scale="13" />
+        </ComplexType>
+        <ComplexType Name="uspGetCarsForUser_Result">
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetCarsForUserDetails_Result">
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Year" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Make" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Model" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TrimLevel" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="MilesPerYear" Nullable="true" />
+          <Property Type="Boolean" Name="AdjustMPY" Nullable="true" />
+          <Property Type="String" Name="Comments" Nullable="true" />
+          <Property Type="String" Name="SMS" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="uspGetDateIntervals_Result">
+          <Property Type="Int32" Name="MonthsValue" Nullable="false" />
+          <Property Type="String" Name="MonthsDescr" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="uspGetFuelForCar_Result">
+          <Property Type="Int32" Name="FuelID" Nullable="false" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="30" />
+          <Property Type="Double" Name="BeginOdo" Nullable="true" />
+          <Property Type="Double" Name="EndOdo" Nullable="true" />
+          <Property Type="Decimal" Name="Miles" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Double" Name="Gallons" Nullable="true" />
+          <Property Type="Decimal" Name="MoneySpent" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Double" Name="MilesPerDollar" Nullable="false" />
+          <Property Type="Double" Name="DollarsPerMile" Nullable="false" />
+          <Property Type="Decimal" Name="MPG" Nullable="false" Precision="10" Scale="3" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="uspGetGarageSearch_Result">
+          <Property Type="String" Name="IsCar" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="result" Nullable="true" MaxLength="256" />
+        </ComplexType>
+        <ComplexType Name="uspGetGuestbookForCar_Result">
+          <Property Type="String" Name="MessageDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Message" Nullable="true" MaxLength="4000" />
+        </ComplexType>
+        <ComplexType Name="uspGetJobDetails_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="CarID" Nullable="true" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MileageInterval" Nullable="true" />
+          <Property Type="Int32" Name="DateInterval" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetJobsForCar_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="uspGetJobsForCarDetails_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MileageInterval" Nullable="true" />
+          <Property Type="Int32" Name="DateInterval" Nullable="true" />
+          <Property Type="String" Name="DateIntervalText" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="uspGetJobsForCarDetails2_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="Int32" Name="CarID" Nullable="true" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MileageInterval" Nullable="true" />
+          <Property Type="Int32" Name="DateInterval" Nullable="true" />
+          <Property Type="Int32" Name="TimesPerformed" Nullable="false" />
+          <Property Type="DateTime" Name="LastPerformedDate" Nullable="true" Precision="16" />
+          <Property Type="Int32" Name="LastPerformedMileage" Nullable="true" />
+          <Property Type="String" Name="DateIntervalText" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="ShoppingListCount" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspGetMaintenanceAlertsAll_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateDueNext" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="MileageDueNext" Nullable="true" />
+          <Property Type="Double" Name="CurrentProjectedMiles" Nullable="true" />
+          <Property Type="DateTime" Name="WarningEmailSent" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspGetMaintenanceAlertsForUser_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MileageDueNext" Nullable="true" />
+          <Property Type="DateTime" Name="DateDueNext" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="CurrentProjectedMiles" Nullable="true" />
+          <Property Type="Int32" Name="NotificationMiles" Nullable="true" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspGetMaintenanceAlertsForUserBeta_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="DateTime" Name="Date" Nullable="true" Precision="16" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MileageDueNext" Nullable="true" />
+          <Property Type="DateTime" Name="DateDueNext" Nullable="true" Precision="23" />
+          <Property Type="Double" Name="CurrentProjectedMiles" Nullable="true" />
+          <Property Type="Int32" Name="NotificationMiles" Nullable="true" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="uspGetMaintenanceForCarNewest_Result">
+          <Property Type="Int32" Name="MaintenanceID" Nullable="false" />
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="Date" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="Mileage" Nullable="true" />
+          <Property Type="Decimal" Name="Cost" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="MileageDueNext" Nullable="true" />
+          <Property Type="String" Name="DateDueNext" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Comments" Nullable="true" MaxLength="1000" />
+        </ComplexType>
+        <ComplexType Name="uspGetMileagePerYearForCar_Result">
+          <Property Type="Int32" Name="MilesPerYearOverall" Nullable="true" />
+          <Property Type="Double" Name="RecentMilesPerYear" Nullable="true" />
+          <Property Type="Int32" Name="StatedMilesPerYear" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetNotesForCar_Result">
+          <Property Type="Int32" Name="NoteID" Nullable="false" />
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="NoteTitle" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="NoteText" Nullable="true" MaxLength="4000" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetNotesForUser_Result">
+          <Property Type="Int32" Name="NoteID" Nullable="false" />
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="NoteTitle" Nullable="false" MaxLength="512" />
+          <Property Type="String" Name="NoteText" Nullable="true" MaxLength="4000" />
+          <Property Type="Int32" Name="MaintenanceID" Nullable="true" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetOverdueItemsForUser_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateDueNext" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspGetProjectAlertsForUser_Result">
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="DateTime" Name="DueDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspGetProjectDetails_Result">
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ProjectDescr" Nullable="true" MaxLength="1000" />
+          <Property Type="DateTime" Name="StartDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="DueDate" Nullable="true" Precision="23" />
+          <Property Type="Decimal" Name="Budget" Nullable="true" Precision="19" />
+          <Property Type="Boolean" Name="Completed" Nullable="false" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspGetProjectItems_Result">
+          <Property Type="Int32" Name="ProjectItemID" Nullable="false" />
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="Int32" Name="OrderID" Nullable="true" />
+          <Property Type="String" Name="ProjectItemName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ProjectItemDescription" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="Vendor" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PartNumber" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="Link" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Boolean" Name="Purchased" Nullable="true" />
+          <Property Type="DateTime" Name="PurchaseDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="Installed" Nullable="true" />
+          <Property Type="DateTime" Name="InstallDate" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="Shared" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetProjectItemsForSharing_Result">
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="ProjectItemName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Link" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="Purchased" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetProjectsForCar_Result">
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ProjectDescr" Nullable="true" MaxLength="1000" />
+          <Property Type="String" Name="StartDate" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="DueDate" Nullable="true" MaxLength="30" />
+          <Property Type="Decimal" Name="Budget" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Decimal" Name="RunningCost" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Boolean" Name="Completed" Nullable="false" />
+          <Property Type="String" Name="CompletionDate" Nullable="true" MaxLength="30" />
+        </ComplexType>
+        <ComplexType Name="uspGetProjectsForSharing_Result">
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ProjectDescr" Nullable="true" MaxLength="1000" />
+          <Property Type="Boolean" Name="Completed" Nullable="false" />
+          <Property Type="DateTime" Name="CompletionDate" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspGetPublicLogs_Result">
+          <Property Type="Int32" Name="CarID" Nullable="false" />
+          <Property Type="String" Name="CarName" Nullable="true" MaxLength="203" />
+        </ComplexType>
+        <ComplexType Name="uspGetPublishedArticles_Result">
+          <Property Type="Int32" Name="ArticleID" Nullable="false" />
+          <Property Type="String" Name="ArticleName" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="ArticleCategory" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="uspGetReportsForCar_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="TotalCost" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="TimesPerformed" Nullable="true" />
+          <Property Type="Decimal" Name="AverageCost" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="uspGetReportsForCarNew_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="Decimal" Name="TotalCost" Nullable="true" Precision="10" Scale="2" />
+          <Property Type="Int32" Name="TimesPerformed" Nullable="true" />
+          <Property Type="Decimal" Name="AverageCost" Nullable="true" Precision="10" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="uspGetUpcomingItemsForUser_Result">
+          <Property Type="Int32" Name="JobID" Nullable="false" />
+          <Property Type="String" Name="Nickname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="JobDescr" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="DateDueNext" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspGetUserHomePage_Result">
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CarCount" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="uspGetUserInfo_Result">
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mcpnetModelStoreContainer" CdmEntityContainer="mcpnetEntities_dev">
+          <EntitySetMapping Name="Alerts">
+            <EntityTypeMapping TypeName="mcpnetModel.Alert">
+              <MappingFragment StoreEntitySet="Alerts">
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="EmailSent" ColumnName="EmailSent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleCategories">
+            <EntityTypeMapping TypeName="mcpnetModel.ArticleCategory">
+              <MappingFragment StoreEntitySet="ArticleCategories">
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="ArticleCategory1" ColumnName="ArticleCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="mcpnetModel.Article">
+              <MappingFragment StoreEntitySet="Articles">
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+                <ScalarProperty Name="ArticleText" ColumnName="ArticleText" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="ArticleStatusID" ColumnName="ArticleStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArticleStatus">
+            <EntityTypeMapping TypeName="mcpnetModel.ArticleStatu">
+              <MappingFragment StoreEntitySet="ArticleStatus">
+                <ScalarProperty Name="ArticleStatusID" ColumnName="ArticleStatusID" />
+                <ScalarProperty Name="ArticleStatus" ColumnName="ArticleStatus" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="mcpnetModel.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="TrimLevel" ColumnName="TrimLevel" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="MilesAtPurchase" ColumnName="MilesAtPurchase" />
+                <ScalarProperty Name="MilesPerYear" ColumnName="MilesPerYear" />
+                <ScalarProperty Name="AdjustMPY" ColumnName="AdjustMPY" />
+                <ScalarProperty Name="CurrentMiles" ColumnName="CurrentMiles" />
+                <ScalarProperty Name="CurrentMilesDate" ColumnName="CurrentMilesDate" />
+                <ScalarProperty Name="PreviousOwners" ColumnName="PreviousOwners" />
+                <ScalarProperty Name="SMS" ColumnName="SMS" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DateIntervals">
+            <EntityTypeMapping TypeName="mcpnetModel.DateInterval">
+              <MappingFragment StoreEntitySet="DateInterval">
+                <ScalarProperty Name="MonthsValue" ColumnName="MonthsValue" />
+                <ScalarProperty Name="MonthsDescr" ColumnName="MonthsDescr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fuels">
+            <EntityTypeMapping TypeName="mcpnetModel.Fuel">
+              <MappingFragment StoreEntitySet="Fuel">
+                <ScalarProperty Name="FuelID" ColumnName="FuelID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="BeginOdo" ColumnName="BeginOdo" />
+                <ScalarProperty Name="EndOdo" ColumnName="EndOdo" />
+                <ScalarProperty Name="Miles" ColumnName="Miles" />
+                <ScalarProperty Name="Gallons" ColumnName="Gallons" />
+                <ScalarProperty Name="MoneySpent" ColumnName="MoneySpent" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Guestbooks">
+            <EntityTypeMapping TypeName="mcpnetModel.Guestbook">
+              <MappingFragment StoreEntitySet="Guestbook">
+                <ScalarProperty Name="GuestbookID" ColumnName="GuestbookID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="FromUserID" ColumnName="FromUserID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IssueItems">
+            <EntityTypeMapping TypeName="mcpnetModel.IssueItem">
+              <MappingFragment StoreEntitySet="IssueItems">
+                <ScalarProperty Name="IssueItemID" ColumnName="IssueItemID" />
+                <ScalarProperty Name="IssueID" ColumnName="IssueID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="IsMaintenance" ColumnName="IsMaintenance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issues">
+            <EntityTypeMapping TypeName="mcpnetModel.Issue">
+              <MappingFragment StoreEntitySet="Issues">
+                <ScalarProperty Name="IssueID" ColumnName="IssueID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="IssueName" ColumnName="IssueName" />
+                <ScalarProperty Name="IssueDescr" ColumnName="IssueDescr" />
+                <ScalarProperty Name="IsResolved" ColumnName="IsResolved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobs">
+            <EntityTypeMapping TypeName="mcpnetModel.Job">
+              <MappingFragment StoreEntitySet="Jobs">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageInterval" ColumnName="MileageInterval" />
+                <ScalarProperty Name="DateInterval" ColumnName="DateInterval" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginHistories">
+            <EntityTypeMapping TypeName="mcpnetModel.LoginHistory">
+              <MappingFragment StoreEntitySet="LoginHistory">
+                <ScalarProperty Name="LoginHistoryID" ColumnName="LoginHistoryID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maintenances">
+            <EntityTypeMapping TypeName="mcpnetModel.Maintenance">
+              <MappingFragment StoreEntitySet="Maintenance">
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="MileageDueNext" ColumnName="MileageDueNext" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="WarningEmailSent" ColumnName="WarningEmailSent" />
+                <ScalarProperty Name="OverdueEmailSent" ColumnName="OverdueEmailSent" />
+                <ScalarProperty Name="IgnoreWarning" ColumnName="IgnoreWarning" />
+                <ScalarProperty Name="IgnoreOverdue" ColumnName="IgnoreOverdue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="mcpnetModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="NoteTitle" ColumnName="NoteTitle" />
+                <ScalarProperty Name="NoteText" ColumnName="NoteText" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OdometerHistories">
+            <EntityTypeMapping TypeName="mcpnetModel.OdometerHistory">
+              <MappingFragment StoreEntitySet="OdometerHistory">
+                <ScalarProperty Name="OdometerHistoryID" ColumnName="OdometerHistoryID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="OdometerReading" ColumnName="OdometerReading" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectItems">
+            <EntityTypeMapping TypeName="mcpnetModel.ProjectItem">
+              <MappingFragment StoreEntitySet="ProjectItems">
+                <ScalarProperty Name="ProjectItemID" ColumnName="ProjectItemID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProjectItemName" ColumnName="ProjectItemName" />
+                <ScalarProperty Name="ProjectItemDescription" ColumnName="ProjectItemDescription" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Purchased" ColumnName="Purchased" />
+                <ScalarProperty Name="Shared" ColumnName="Shared" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Installed" ColumnName="Installed" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="mcpnetModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectDescr" ColumnName="ProjectDescr" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingLists">
+            <EntityTypeMapping TypeName="mcpnetModel.ShoppingList">
+              <MappingFragment StoreEntitySet="ShoppingList">
+                <ScalarProperty Name="ShoppingListID" ColumnName="ShoppingListID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ItemLink" ColumnName="ItemLink" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsernameQueries">
+            <EntityTypeMapping TypeName="mcpnetModel.UsernameQuery">
+              <MappingFragment StoreEntitySet="UsernameQueries">
+                <ScalarProperty Name="UsernameQueryID" ColumnName="UsernameQueryID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="QueryDate" ColumnName="QueryDate" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="mcpnetModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NotificationDays" ColumnName="NotificationDays" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Referral" ColumnName="Referral" />
+                <ScalarProperty Name="InitialIP" ColumnName="InitialIP" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="uspActivateAccount" FunctionName="mcpnetModel.Store.uspActivateAccount" />
+          <FunctionImportMapping FunctionImportName="uspAddJobAndMaintenance" FunctionName="mcpnetModel.Store.uspAddJobAndMaintenance" />
+          <FunctionImportMapping FunctionImportName="uspAddNote" FunctionName="mcpnetModel.Store.uspAddNote" />
+          <FunctionImportMapping FunctionImportName="uspAuthenticateNewUser" FunctionName="mcpnetModel.Store.uspAuthenticateNewUser" />
+          <FunctionImportMapping FunctionImportName="uspAuthenticateUser" FunctionName="mcpnetModel.Store.uspAuthenticateUser" />
+          <FunctionImportMapping FunctionImportName="uspChangeUserPassword" FunctionName="mcpnetModel.Store.uspChangeUserPassword" />
+          <FunctionImportMapping FunctionImportName="uspCheckForDailyEmail" FunctionName="mcpnetModel.Store.uspCheckForDailyEmail" />
+          <FunctionImportMapping FunctionImportName="uspCheckUsername" FunctionName="mcpnetModel.Store.uspCheckUsername" />
+          <FunctionImportMapping FunctionImportName="uspCreateCar" FunctionName="mcpnetModel.Store.uspCreateCar" />
+          <FunctionImportMapping FunctionImportName="uspCreateJob" FunctionName="mcpnetModel.Store.uspCreateJob" />
+          <FunctionImportMapping FunctionImportName="uspDeleteCar" FunctionName="mcpnetModel.Store.uspDeleteCar" />
+          <FunctionImportMapping FunctionImportName="uspDeleteFuel" FunctionName="mcpnetModel.Store.uspDeleteFuel" />
+          <FunctionImportMapping FunctionImportName="uspDeleteJob" FunctionName="mcpnetModel.Store.uspDeleteJob" />
+          <FunctionImportMapping FunctionImportName="uspDeleteMaintenance" FunctionName="mcpnetModel.Store.uspDeleteMaintenance" />
+          <FunctionImportMapping FunctionImportName="uspDeleteNote" FunctionName="mcpnetModel.Store.uspDeleteNote" />
+          <FunctionImportMapping FunctionImportName="uspDeleteProject" FunctionName="mcpnetModel.Store.uspDeleteProject" />
+          <FunctionImportMapping FunctionImportName="uspDeleteProjectItem" FunctionName="mcpnetModel.Store.uspDeleteProjectItem" />
+          <FunctionImportMapping FunctionImportName="uspGetAllCars" FunctionName="mcpnetModel.Store.uspGetAllCars">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetAllCars_Result">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="TrimLevel" ColumnName="TrimLevel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetAllMPGLogs" FunctionName="mcpnetModel.Store.uspGetAllMPGLogs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetAllMPGLogs_Result">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="TrimLevel" ColumnName="TrimLevel" />
+                <ScalarProperty Name="LogEntries" ColumnName="LogEntries" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetArticle" FunctionName="mcpnetModel.Store.uspGetArticle">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetArticle_Result">
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="ArticleCategory" ColumnName="ArticleCategory" />
+                <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+                <ScalarProperty Name="ArticleText" ColumnName="ArticleText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetArticleCategories" FunctionName="mcpnetModel.Store.uspGetArticleCategories">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetArticleCategories_Result">
+                <ScalarProperty Name="ArticleCategoryID" ColumnName="ArticleCategoryID" />
+                <ScalarProperty Name="ArticleCategory" ColumnName="ArticleCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetArticlesForUser" FunctionName="mcpnetModel.Store.uspGetArticlesForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetArticlesForUser_Result">
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+                <ScalarProperty Name="ArticleCategory" ColumnName="ArticleCategory" />
+                <ScalarProperty Name="ArticleStatus" ColumnName="ArticleStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetCarDetails" FunctionName="mcpnetModel.Store.uspGetCarDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetCarDetails_Result">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="TrimLevel" ColumnName="TrimLevel" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Engine" ColumnName="Engine" />
+                <ScalarProperty Name="Transmission" ColumnName="Transmission" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="MilesAtPurchase" ColumnName="MilesAtPurchase" />
+                <ScalarProperty Name="MilesPerYear" ColumnName="MilesPerYear" />
+                <ScalarProperty Name="AdjustMPY" ColumnName="AdjustMPY" />
+                <ScalarProperty Name="CurrentMiles" ColumnName="CurrentMiles" />
+                <ScalarProperty Name="CurrentMilesDate" ColumnName="CurrentMilesDate" />
+                <ScalarProperty Name="PreviousOwners" ColumnName="PreviousOwners" />
+                <ScalarProperty Name="SMS" ColumnName="SMS" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetCarHealth" FunctionName="mcpnetModel.Store.uspGetCarHealth">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetCarHealth_Result">
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="MileageDueNext" ColumnName="MileageDueNext" />
+                <ScalarProperty Name="PercentMileage" ColumnName="PercentMileage" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+                <ScalarProperty Name="PercentDate" ColumnName="PercentDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetCarsForUser" FunctionName="mcpnetModel.Store.uspGetCarsForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetCarsForUser_Result">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetCarsForUserDetails" FunctionName="mcpnetModel.Store.uspGetCarsForUserDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetCarsForUserDetails_Result">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Make" ColumnName="Make" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="TrimLevel" ColumnName="TrimLevel" />
+                <ScalarProperty Name="MilesPerYear" ColumnName="MilesPerYear" />
+                <ScalarProperty Name="AdjustMPY" ColumnName="AdjustMPY" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="SMS" ColumnName="SMS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetDateIntervals" FunctionName="mcpnetModel.Store.uspGetDateIntervals">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetDateIntervals_Result">
+                <ScalarProperty Name="MonthsValue" ColumnName="MonthsValue" />
+                <ScalarProperty Name="MonthsDescr" ColumnName="MonthsDescr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetFuelForCar" FunctionName="mcpnetModel.Store.uspGetFuelForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetFuelForCar_Result">
+                <ScalarProperty Name="FuelID" ColumnName="FuelID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="BeginOdo" ColumnName="BeginOdo" />
+                <ScalarProperty Name="EndOdo" ColumnName="EndOdo" />
+                <ScalarProperty Name="Miles" ColumnName="Miles" />
+                <ScalarProperty Name="Gallons" ColumnName="Gallons" />
+                <ScalarProperty Name="MoneySpent" ColumnName="MoneySpent" />
+                <ScalarProperty Name="MilesPerDollar" ColumnName="MilesPerDollar" />
+                <ScalarProperty Name="DollarsPerMile" ColumnName="DollarsPerMile" />
+                <ScalarProperty Name="MPG" ColumnName="MPG" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetGarageSearch" FunctionName="mcpnetModel.Store.uspGetGarageSearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetGarageSearch_Result">
+                <ScalarProperty Name="IsCar" ColumnName="IsCar" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="result" ColumnName="result" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetGuestbookForCar" FunctionName="mcpnetModel.Store.uspGetGuestbookForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetGuestbookForCar_Result">
+                <ScalarProperty Name="MessageDate" ColumnName="MessageDate" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetJobDetails" FunctionName="mcpnetModel.Store.uspGetJobDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetJobDetails_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageInterval" ColumnName="MileageInterval" />
+                <ScalarProperty Name="DateInterval" ColumnName="DateInterval" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetJobsForCar" FunctionName="mcpnetModel.Store.uspGetJobsForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetJobsForCar_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetJobsForCarDetails" FunctionName="mcpnetModel.Store.uspGetJobsForCarDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetJobsForCarDetails_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageInterval" ColumnName="MileageInterval" />
+                <ScalarProperty Name="DateInterval" ColumnName="DateInterval" />
+                <ScalarProperty Name="DateIntervalText" ColumnName="DateIntervalText" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetJobsForCarDetails2" FunctionName="mcpnetModel.Store.uspGetJobsForCarDetails2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetJobsForCarDetails2_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageInterval" ColumnName="MileageInterval" />
+                <ScalarProperty Name="DateInterval" ColumnName="DateInterval" />
+                <ScalarProperty Name="TimesPerformed" ColumnName="TimesPerformed" />
+                <ScalarProperty Name="LastPerformedDate" ColumnName="LastPerformedDate" />
+                <ScalarProperty Name="LastPerformedMileage" ColumnName="LastPerformedMileage" />
+                <ScalarProperty Name="DateIntervalText" ColumnName="DateIntervalText" />
+                <ScalarProperty Name="ShoppingListCount" ColumnName="ShoppingListCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetMaintenanceAlertsAll" FunctionName="mcpnetModel.Store.uspGetMaintenanceAlertsAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetMaintenanceAlertsAll_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+                <ScalarProperty Name="MileageDueNext" ColumnName="MileageDueNext" />
+                <ScalarProperty Name="CurrentProjectedMiles" ColumnName="CurrentProjectedMiles" />
+                <ScalarProperty Name="WarningEmailSent" ColumnName="WarningEmailSent" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetMaintenanceAlertsForUser" FunctionName="mcpnetModel.Store.uspGetMaintenanceAlertsForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetMaintenanceAlertsForUser_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageDueNext" ColumnName="MileageDueNext" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+                <ScalarProperty Name="CurrentProjectedMiles" ColumnName="CurrentProjectedMiles" />
+                <ScalarProperty Name="NotificationMiles" ColumnName="NotificationMiles" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetMaintenanceAlertsForUserBeta" FunctionName="mcpnetModel.Store.uspGetMaintenanceAlertsForUserBeta">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetMaintenanceAlertsForUserBeta_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageDueNext" ColumnName="MileageDueNext" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+                <ScalarProperty Name="CurrentProjectedMiles" ColumnName="CurrentProjectedMiles" />
+                <ScalarProperty Name="NotificationMiles" ColumnName="NotificationMiles" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetMaintenanceForCar" FunctionName="mcpnetModel.Store.uspGetMaintenanceForCar" />
+          <FunctionImportMapping FunctionImportName="uspGetMaintenanceForCarNewest" FunctionName="mcpnetModel.Store.uspGetMaintenanceForCarNewest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetMaintenanceForCarNewest_Result">
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Mileage" ColumnName="Mileage" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="MileageDueNext" ColumnName="MileageDueNext" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetMileagePerYearForCar" FunctionName="mcpnetModel.Store.uspGetMileagePerYearForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetMileagePerYearForCar_Result">
+                <ScalarProperty Name="MilesPerYearOverall" ColumnName="MilesPerYearOverall" />
+                <ScalarProperty Name="RecentMilesPerYear" ColumnName="RecentMilesPerYear" />
+                <ScalarProperty Name="StatedMilesPerYear" ColumnName="StatedMilesPerYear" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetNotesForCar" FunctionName="mcpnetModel.Store.uspGetNotesForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetNotesForCar_Result">
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="NoteTitle" ColumnName="NoteTitle" />
+                <ScalarProperty Name="NoteText" ColumnName="NoteText" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetNotesForUser" FunctionName="mcpnetModel.Store.uspGetNotesForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetNotesForUser_Result">
+                <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="NoteTitle" ColumnName="NoteTitle" />
+                <ScalarProperty Name="NoteText" ColumnName="NoteText" />
+                <ScalarProperty Name="MaintenanceID" ColumnName="MaintenanceID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetOverdueItemsForUser" FunctionName="mcpnetModel.Store.uspGetOverdueItemsForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetOverdueItemsForUser_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetProjectAlertsForUser" FunctionName="mcpnetModel.Store.uspGetProjectAlertsForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetProjectAlertsForUser_Result">
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetProjectDetails" FunctionName="mcpnetModel.Store.uspGetProjectDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetProjectDetails_Result">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectDescr" ColumnName="ProjectDescr" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetProjectedMiles" FunctionName="mcpnetModel.Store.uspGetProjectedMiles" />
+          <FunctionImportMapping FunctionImportName="uspGetProjectItems" FunctionName="mcpnetModel.Store.uspGetProjectItems">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetProjectItems_Result">
+                <ScalarProperty Name="ProjectItemID" ColumnName="ProjectItemID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProjectItemName" ColumnName="ProjectItemName" />
+                <ScalarProperty Name="ProjectItemDescription" ColumnName="ProjectItemDescription" />
+                <ScalarProperty Name="Vendor" ColumnName="Vendor" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Purchased" ColumnName="Purchased" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Installed" ColumnName="Installed" />
+                <ScalarProperty Name="InstallDate" ColumnName="InstallDate" />
+                <ScalarProperty Name="Shared" ColumnName="Shared" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetProjectItemsForSharing" FunctionName="mcpnetModel.Store.uspGetProjectItemsForSharing">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetProjectItemsForSharing_Result">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectItemName" ColumnName="ProjectItemName" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Purchased" ColumnName="Purchased" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetProjectsForCar" FunctionName="mcpnetModel.Store.uspGetProjectsForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetProjectsForCar_Result">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectDescr" ColumnName="ProjectDescr" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="RunningCost" ColumnName="RunningCost" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetProjectsForSharing" FunctionName="mcpnetModel.Store.uspGetProjectsForSharing">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetProjectsForSharing_Result">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectDescr" ColumnName="ProjectDescr" />
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetPublicLogs" FunctionName="mcpnetModel.Store.uspGetPublicLogs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetPublicLogs_Result">
+                <ScalarProperty Name="CarID" ColumnName="CarID" />
+                <ScalarProperty Name="CarName" ColumnName="CarName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetPublishedArticles" FunctionName="mcpnetModel.Store.uspGetPublishedArticles">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetPublishedArticles_Result">
+                <ScalarProperty Name="ArticleID" ColumnName="ArticleID" />
+                <ScalarProperty Name="ArticleName" ColumnName="ArticleName" />
+                <ScalarProperty Name="ArticleCategory" ColumnName="ArticleCategory" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetReportsForCar" FunctionName="mcpnetModel.Store.uspGetReportsForCar">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetReportsForCar_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="TimesPerformed" ColumnName="TimesPerformed" />
+                <ScalarProperty Name="AverageCost" ColumnName="AverageCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetReportsForCarNew" FunctionName="mcpnetModel.Store.uspGetReportsForCarNew">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetReportsForCarNew_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="TimesPerformed" ColumnName="TimesPerformed" />
+                <ScalarProperty Name="AverageCost" ColumnName="AverageCost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetUpcomingItemsForUser" FunctionName="mcpnetModel.Store.uspGetUpcomingItemsForUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetUpcomingItemsForUser_Result">
+                <ScalarProperty Name="JobID" ColumnName="JobID" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="JobDescr" ColumnName="JobDescr" />
+                <ScalarProperty Name="DateDueNext" ColumnName="DateDueNext" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetUserHomePage" FunctionName="mcpnetModel.Store.uspGetUserHomePage">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetUserHomePage_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CarCount" ColumnName="CarCount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetUserInfo" FunctionName="mcpnetModel.Store.uspGetUserInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="mcpnetModel.uspGetUserInfo_Result">
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGetUsernameFromEmail" FunctionName="mcpnetModel.Store.uspGetUsernameFromEmail" />
+          <FunctionImportMapping FunctionImportName="uspIgnoreMaintenanceOverdue" FunctionName="mcpnetModel.Store.uspIgnoreMaintenanceOverdue" />
+          <FunctionImportMapping FunctionImportName="uspIgnoreMaintenanceWarning" FunctionName="mcpnetModel.Store.uspIgnoreMaintenanceWarning" />
+          <FunctionImportMapping FunctionImportName="uspInsertArticle" FunctionName="mcpnetModel.Store.uspInsertArticle" />
+          <FunctionImportMapping FunctionImportName="uspInsertFuel" FunctionName="mcpnetModel.Store.uspInsertFuel" />
+          <FunctionImportMapping FunctionImportName="uspInsertGuestbookEntry" FunctionName="mcpnetModel.Store.uspInsertGuestbookEntry" />
+          <FunctionImportMapping FunctionImportName="uspInsertLoginHistory" FunctionName="mcpnetModel.Store.uspInsertLoginHistory" />
+          <FunctionImportMapping FunctionImportName="uspInsertMaintenance" FunctionName="mcpnetModel.Store.uspInsertMaintenance" />
+          <FunctionImportMapping FunctionImportName="uspInsertOdometerHistory" FunctionName="mcpnetModel.Store.uspInsertOdometerHistory" />
+          <FunctionImportMapping FunctionImportName="uspInsertProject" FunctionName="mcpnetModel.Store.uspInsertProject" />
+          <FunctionImportMapping FunctionImportName="uspInsertProjectItem" FunctionName="mcpnetModel.Store.uspInsertProjectItem" />
+          <FunctionImportMapping FunctionImportName="uspInsertUsernameQuery" FunctionName="mcpnetModel.Store.uspInsertUsernameQuery" />
+          <FunctionImportMapping FunctionImportName="uspIsCarOwner" FunctionName="mcpnetModel.Store.uspIsCarOwner" />
+          <FunctionImportMapping FunctionImportName="uspIsFuelOwner" FunctionName="mcpnetModel.Store.uspIsFuelOwner" />
+          <FunctionImportMapping FunctionImportName="uspIsJobOwner" FunctionName="mcpnetModel.Store.uspIsJobOwner" />
+          <FunctionImportMapping FunctionImportName="uspIsMaintenanceOwner" FunctionName="mcpnetModel.Store.uspIsMaintenanceOwner" />
+          <FunctionImportMapping FunctionImportName="uspResetPassword" FunctionName="mcpnetModel.Store.uspResetPassword" />
+          <FunctionImportMapping FunctionImportName="uspSaveCar" FunctionName="mcpnetModel.Store.uspSaveCar" />
+          <FunctionImportMapping FunctionImportName="uspSaveJob" FunctionName="mcpnetModel.Store.uspSaveJob" />
+          <FunctionImportMapping FunctionImportName="uspSetCarPublicStatus" FunctionName="mcpnetModel.Store.uspSetCarPublicStatus" />
+          <FunctionImportMapping FunctionImportName="uspUpdateCurrentMiles" FunctionName="mcpnetModel.Store.uspUpdateCurrentMiles" />
+          <FunctionImportMapping FunctionImportName="uspUpdateDailyEmail" FunctionName="mcpnetModel.Store.uspUpdateDailyEmail" />
+          <FunctionImportMapping FunctionImportName="uspUpdateFuel" FunctionName="mcpnetModel.Store.uspUpdateFuel" />
+          <FunctionImportMapping FunctionImportName="uspUpdateMaintenance" FunctionName="mcpnetModel.Store.uspUpdateMaintenance" />
+          <FunctionImportMapping FunctionImportName="uspUpdateMaintenanceAlertSent" FunctionName="mcpnetModel.Store.uspUpdateMaintenanceAlertSent" />
+          <FunctionImportMapping FunctionImportName="uspUpdateNote" FunctionName="mcpnetModel.Store.uspUpdateNote" />
+          <FunctionImportMapping FunctionImportName="uspUpdateProject" FunctionName="mcpnetModel.Store.uspUpdateProject" />
+          <FunctionImportMapping FunctionImportName="uspUpdateProjectItem" FunctionName="mcpnetModel.Store.uspUpdateProjectItem" />
+          <FunctionImportMapping FunctionImportName="uspUpdateUser" FunctionName="mcpnetModel.Store.uspUpdateUser" />
+          <FunctionImportMapping FunctionImportName="uspVerifyUserInfo" FunctionName="mcpnetModel.Store.uspVerifyUserInfo" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

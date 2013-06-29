@@ -1,0 +1,75 @@
+﻿@model IEnumerable<mcptouch.Models.Fuel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.Nickname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginOdo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EndOdo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Miles)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gallons)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoneySpent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeginOdo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EndOdo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Miles)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gallons)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoneySpent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FuelID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FuelID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FuelID })
+        </td>
+    </tr>
+}
+
+</table>
