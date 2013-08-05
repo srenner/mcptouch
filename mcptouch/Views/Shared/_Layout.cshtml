@@ -20,7 +20,11 @@
             </div>
             <div data-role="content">
                 @RenderBody()
+                @if(Request.IsAuthenticated) {
+                    @Html.Partial("_LoggedInNavigation")                
+                }
             </div>
+
         </div>
 
         @Scripts.Render("~/bundles/jquery", "~/bundles/jquerymobile")
