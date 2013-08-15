@@ -1,0 +1,124 @@
+﻿@model mcptouch.Models.Maintenance
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Maintenance</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CarID, "Car")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CarID", String.Empty)
+            @Html.ValidationMessageFor(model => model.CarID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.JobID, "Job")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("JobID", String.Empty)
+            @Html.ValidationMessageFor(model => model.JobID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mileage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Mileage)
+            @Html.ValidationMessageFor(model => model.Mileage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Cost)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cost)
+            @Html.ValidationMessageFor(model => model.Cost)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MileageDueNext)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MileageDueNext)
+            @Html.ValidationMessageFor(model => model.MileageDueNext)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateDueNext)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateDueNext)
+            @Html.ValidationMessageFor(model => model.DateDueNext)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Comments)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comments)
+            @Html.ValidationMessageFor(model => model.Comments)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WarningEmailSent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WarningEmailSent)
+            @Html.ValidationMessageFor(model => model.WarningEmailSent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OverdueEmailSent)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OverdueEmailSent)
+            @Html.ValidationMessageFor(model => model.OverdueEmailSent)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IgnoreWarning)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IgnoreWarning)
+            @Html.ValidationMessageFor(model => model.IgnoreWarning)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IgnoreOverdue)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IgnoreOverdue)
+            @Html.ValidationMessageFor(model => model.IgnoreOverdue)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

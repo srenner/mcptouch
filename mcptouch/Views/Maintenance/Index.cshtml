@@ -1,0 +1,99 @@
+﻿@model IEnumerable<mcptouch.Models.Maintenance>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Car.Nickname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job.JobDescr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mileage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MileageDueNext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDueNext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarningEmailSent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OverdueEmailSent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IgnoreWarning)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IgnoreOverdue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Car.Nickname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job.JobDescr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mileage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MileageDueNext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDueNext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarningEmailSent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OverdueEmailSent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IgnoreWarning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IgnoreOverdue)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaintenanceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaintenanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaintenanceID })
+        </td>
+    </tr>
+}
+
+</table>
