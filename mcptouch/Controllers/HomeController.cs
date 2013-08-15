@@ -11,14 +11,14 @@ namespace mcptouch.Controllers
     {
         public ActionResult Index()
         {
-            if (User.Identity.Name == "")
+            if (User != null)
             {
-                ViewBag.DateRange = mcptouch.Helpers.ProjectDate.GetProjectDateRange();
-                return View();
+                return RedirectToAction("Index", "Dashboard");
             }
             else
             {
-                return RedirectToAction("Index", "Dashboard");
+                ViewBag.DateRange = mcptouch.Helpers.ProjectDate.GetProjectDateRange();
+                return View();
             }
         }
 
