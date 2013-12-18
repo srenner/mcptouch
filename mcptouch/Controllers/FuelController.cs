@@ -18,8 +18,11 @@ namespace mcptouch.Controllers
 
         public ActionResult Index()
         {
-            var fuels = db.Fuels.Include(f => f.Car);
-            return View(fuels.ToList());
+            //var fuels = db.Fuels.Include(f => f.Car);
+
+            Fuel fuel = db.Fuels.Find(1);
+            
+            return View(fuel);
         }
 
         //
